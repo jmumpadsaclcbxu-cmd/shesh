@@ -502,17 +502,42 @@
   /* --------------------------------------------------------
      6. CONTACT FORM
   -------------------------------------------------------- */
-  function initForm() {
+function initForm() {
     const form = document.getElementById("contactForm");
     const success = document.getElementById("formSuccess");
     if (!form) return;
 
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      // Simulate submission (replace with real endpoint)
-      form.style.display = "none";
-      if (success) success.style.display = "flex";
-    });
+   form.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const data = {
+        name: form.name.value,
+        email: form.email.value,
+        business: form.business.value,
+        service: form.service.value,
+        message: form.message.value
+    };
+
+    const response = await fetch(
+        "https://jm.marjbsayao.workers.dev/",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+    );
+
+    if (response.ok) {
+        form.style.display = "none";
+        success.style.display = "flex";
+    } else {
+        alert("Unable to send message.");
+    }
+
+});
   }
 
   /* --------------------------------------------------------
