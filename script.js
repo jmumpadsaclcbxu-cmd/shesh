@@ -502,7 +502,7 @@
   /* --------------------------------------------------------
      6. CONTACT FORM
   -------------------------------------------------------- */
-function initForm() {
+  function initForm() {
     const form = document.getElementById("contactForm");
     const success = document.getElementById("formSuccess");
     if (!form) return;
@@ -536,8 +536,8 @@ function initForm() {
     } else {
         alert("Unable to send message.");
     }
+
 });
-console.log("test")
   }
 
   /* --------------------------------------------------------
