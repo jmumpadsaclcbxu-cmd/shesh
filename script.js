@@ -537,6 +537,7 @@ function initForm() {
         alert("Unable to send message.");
     }
 });
+console.log("test")
   }
 
   /* --------------------------------------------------------
