@@ -1,281 +1,413 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>
-            Reyper John Florida — GoHighLevel Expert & Digital Systems Architect
-        </title>
-        <meta
-            name="description"
-            content="I build client acquisition systems — websites, funnels, automation, and AI workflows — that turn traffic into revenue."
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
-        <!-- NAV -->
-        <nav id="navbar">
-            <div class="nav-inner">
-                <a href="#hero" class="nav-logo"
-                    >RJF<span class="logo-dot">.</span></a
-                >
-                <button
-                    class="nav-toggle"
-                    id="navToggle"
-                    aria-label="Toggle menu"
-                >
-                    <span></span><span></span><span></span>
-                </button>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#process">Process</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact" class="nav-cta">Book a Call</a></li>
-                </ul>
-            </div>
-        </nav>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reyper John Florida builds high-converting websites, funnels, automation systems, and AI-powered workflows in GoHighLevel.">
+  <title>Reyper John Florida | GoHighLevel Expert & Digital Systems Architect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07110f;
+      --bg-soft: #0b1815;
+      --panel: rgba(255,255,255,.055);
+      --panel-strong: #11211d;
+      --text: #f5f5ef;
+      --muted: #aab8b3;
+      --line: rgba(255,255,255,.11);
+      --accent: #f28e2b;
+      --accent-2: #ffd29f;
+      --teal: #1b4d52;
+      --max: 1180px;
+      --radius: 24px;
+      --shadow: 0 30px 90px rgba(0,0,0,.35);
+    }
 
-        <!-- HERO -->
-        <section id="hero">
-            <div class="hero-bg-grid"></div>
-            <div class="hero-glow"></div>
-            <div class="container hero-content">
-                <div class="hero-eyebrow" id="heroEyebrow"></div>
-                <h1 class="hero-headline" id="heroHeadline"></h1>
-                <p class="hero-sub" id="heroSub"></p>
-                <div class="hero-actions">
-                    <a
-                        href="#contact"
-                        class="btn btn-primary"
-                        id="heroCta1"
-                    ></a>
-                    <a href="#work" class="btn btn-ghost" id="heroCta2"></a>
-                </div>
-                <div class="hero-badge" id="heroBadge"></div>
-            </div>
-            <div class="hero-scroll-hint">
-                <span>Scroll</span>
-                <div class="scroll-line"></div>
-            </div>
-        </section>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 80% 5%, rgba(27,77,82,.34), transparent 32%),
+        radial-gradient(circle at 10% 28%, rgba(242,142,43,.10), transparent 26%),
+        var(--bg);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input, textarea, select { font: inherit; }
+    section { padding: 108px 24px; position: relative; }
+    .container { width: min(100%, var(--max)); margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent-2);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .eyebrow::before { content: ""; width: 30px; height: 1px; background: var(--accent); }
+    h1, h2, h3, .logo { font-family: "Syne", sans-serif; line-height: 1.05; }
+    h2 { font-size: clamp(2.2rem, 5vw, 4.3rem); letter-spacing: -.05em; max-width: 850px; }
+    .section-copy { color: var(--muted); max-width: 680px; font-size: 1.08rem; margin-top: 20px; }
+    .section-head { margin-bottom: 52px; }
 
-        <!-- TRUST STRIP -->
-        <section id="trust">
-            <div class="trust-inner">
-                <div class="trust-track" id="trustTrack"></div>
-            </div>
-        </section>
+    .nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      padding: 16px 24px;
+      transition: .3s ease;
+    }
+    .nav.scrolled { background: rgba(7,17,15,.86); backdrop-filter: blur(18px); border-bottom: 1px solid var(--line); }
+    .nav-inner { max-width: var(--max); margin: auto; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -.06em; }
+    .logo span { color: var(--accent); }
+    .nav-links { list-style: none; display: flex; gap: 28px; align-items: center; }
+    .nav-links a { color: #d7dfdc; font-size: .91rem; font-weight: 600; transition: .25s; }
+    .nav-links a:hover { color: white; }
+    .nav-cta { padding: 12px 18px; background: var(--accent); color: #17100a !important; border-radius: 999px; }
+    .menu-btn { display: none; width: 44px; height: 44px; border: 1px solid var(--line); background: var(--panel); border-radius: 50%; color: white; cursor: pointer; }
 
-        <!-- ABOUT -->
-        <section id="about">
-            <div class="container about-grid">
-                <div class="about-visual">
-                    <div class="about-card">
-                        <div class="about-card-inner">
-                            <div class="about-stats" id="aboutStats"></div>
-                        </div>
-                        <div class="about-card-tag">
-                            Computer Science Background
-                        </div>
-                        <div class="about-card-tag tag-2">
-                            GoHighLevel Certified Expert
-                        </div>
-                    </div>
-                    <div class="about-deco-line"></div>
-                </div>
-                <div class="about-copy">
-                    <div class="eyebrow" id="aboutEyebrow"></div>
-                    <h2 id="aboutHeadline"></h2>
-                    <div class="about-body" id="aboutBody"></div>
-                </div>
-            </div>
-        </section>
+    .hero { min-height: 100vh; display: grid; align-items: center; padding-top: 145px; }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 58px 58px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+      pointer-events: none;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.35fr .65fr; align-items: end; gap: 64px; position: relative; }
+    .availability { display: inline-flex; gap: 10px; align-items: center; padding: 9px 14px; border: 1px solid var(--line); border-radius: 999px; color: #c8d4d0; font-size: .84rem; margin-bottom: 28px; background: rgba(255,255,255,.035); }
+    .pulse { width: 8px; height: 8px; border-radius: 50%; background: #70e7a2; box-shadow: 0 0 0 7px rgba(112,231,162,.1); }
+    h1 { font-size: clamp(3.6rem, 8.5vw, 8.1rem); letter-spacing: -.075em; max-width: 980px; }
+    h1 .accent { color: var(--accent); }
+    .hero-text { color: var(--muted); max-width: 690px; font-size: clamp(1.02rem, 2vw, 1.24rem); margin: 28px 0 34px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 10px; padding: 15px 22px; border-radius: 999px; font-weight: 700; border: 1px solid var(--line); transition: transform .25s, background .25s, border .25s; cursor: pointer; }
+    .btn:hover { transform: translateY(-3px); }
+    .btn-primary { background: var(--accent); color: #17100a; border-color: var(--accent); }
+    .btn-secondary { background: rgba(255,255,255,.045); color: white; }
+    .hero-card { background: linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.025)); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); transform: rotate(2deg); }
+    .hero-card-label { color: var(--accent-2); font-size: .76rem; text-transform: uppercase; letter-spacing: .16em; font-weight: 700; }
+    .hero-card strong { display: block; font-family: "Syne"; font-size: 2.5rem; margin: 14px 0 4px; }
+    .hero-card p { color: var(--muted); }
+    .mini-list { display: grid; gap: 12px; margin-top: 24px; }
+    .mini-list div { padding-top: 12px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; color: #dfe7e4; }
+    .mini-list span { color: var(--muted); font-size: .85rem; }
 
-        <!-- SERVICES -->
-        <section id="services">
-            <div class="container">
-                <div class="section-header">
-                    <div class="eyebrow" id="servicesEyebrow"></div>
-                    <h2 id="servicesHeadline"></h2>
-                    <p class="section-sub" id="servicesSub"></p>
-                </div>
-                <div class="services-grid" id="servicesGrid"></div>
-            </div>
-        </section>
+    .trust { padding: 22px 24px; border-block: 1px solid var(--line); overflow: hidden; background: rgba(255,255,255,.018); }
+    .trust-row { max-width: var(--max); margin: auto; display: flex; justify-content: space-between; gap: 28px; flex-wrap: wrap; color: #95a6a0; font-size: .83rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 
-        <!-- CASE STUDIES -->
-        <section id="work">
-            <div class="container">
-                <div class="section-header">
-                    <div class="eyebrow" id="caseEyebrow"></div>
-                    <h2 id="caseHeadline"></h2>
-                    <p class="section-sub" id="caseSub"></p>
-                </div>
-                <div class="cases-grid" id="casesGrid"></div>
-            </div>
-        </section>
+    .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 72px; align-items: center; }
+    .profile-card { min-height: 510px; border-radius: 32px; border: 1px solid var(--line); background: linear-gradient(160deg, var(--teal), #0c211d 72%); padding: 34px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    .profile-card::after { content: "RJF"; position: absolute; right: -20px; bottom: -55px; font: 800 10rem/1 "Syne"; color: rgba(255,255,255,.04); }
+    .profile-card h3 { font-size: 2.2rem; max-width: 360px; }
+    .stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; position: relative; z-index: 1; }
+    .stat { background: rgba(0,0,0,.2); border: 1px solid rgba(255,255,255,.1); border-radius: 18px; padding: 18px; }
+    .stat strong { font-family: "Syne"; font-size: 1.8rem; display: block; }
+    .stat span { color: #b7c7c2; font-size: .85rem; }
+    .about-copy p { color: var(--muted); font-size: 1.07rem; margin-top: 20px; }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .skill { padding: 9px 13px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.035); color: #dce5e2; font-size: .86rem; }
 
-        <!-- PROCESS -->
-        <section id="process">
-            <div class="process-bg"></div>
-            <div class="container">
-                <div class="section-header">
-                    <div class="eyebrow" id="processEyebrow"></div>
-                    <h2 id="processHeadline"></h2>
-                    <p class="section-sub" id="processSub"></p>
-                </div>
-                <div class="process-steps" id="processSteps"></div>
-            </div>
-        </section>
+    .services { background: var(--bg-soft); }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { border: 1px solid var(--line); background: var(--panel); border-radius: var(--radius); padding: 30px; transition: transform .3s, border .3s, background .3s; }
+    .card:hover { transform: translateY(-7px); border-color: rgba(242,142,43,.45); background: rgba(255,255,255,.075); }
+    .icon { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: rgba(242,142,43,.12); color: var(--accent); font-weight: 800; margin-bottom: 40px; }
+    .card h3 { font-size: 1.35rem; margin-bottom: 12px; }
+    .card p { color: var(--muted); font-size: .94rem; }
 
-        <!-- DIFFERENTIATORS -->
-        <section id="differentiators">
-            <div class="container">
-                <div class="section-header">
-                    <div class="eyebrow" id="diffEyebrow"></div>
-                    <h2 id="diffHeadline"></h2>
-                </div>
-                <div class="diff-grid" id="diffGrid"></div>
-            </div>
-        </section>
+    .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .project { min-height: 420px; border: 1px solid var(--line); border-radius: 28px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; position: relative; background: linear-gradient(145deg, #153b3e, #0a1715); }
+    .project:nth-child(2) { background: linear-gradient(145deg, #3a2615, #101512); }
+    .project:nth-child(3) { background: linear-gradient(145deg, #222a36, #0b1110); }
+    .project:nth-child(4) { background: linear-gradient(145deg, #21372b, #0b1512); }
+    .project::after { content: ""; width: 250px; height: 250px; border: 1px solid rgba(255,255,255,.1); border-radius: 50%; position: absolute; right: -85px; top: -85px; }
+    .project-tag { display: inline-flex; width: fit-content; padding: 8px 11px; border-radius: 999px; background: rgba(255,255,255,.08); color: #d9e2df; font-size: .78rem; }
+    .project h3 { font-size: clamp(1.8rem, 4vw, 3rem); margin-bottom: 14px; max-width: 500px; }
+    .project p { color: #b7c4c0; max-width: 520px; }
+    .project-meta { margin-top: 24px; display: flex; gap: 18px; flex-wrap: wrap; color: #e6eeeb; font-size: .84rem; }
 
-        <!-- TESTIMONIALS -->
-        <section id="testimonials">
-            <div class="container">
-                <div class="section-header">
-                    <div class="eyebrow" id="testEyebrow"></div>
-                    <h2 id="testHeadline"></h2>
-                </div>
-                <div class="testimonials-grid" id="testimonialsGrid"></div>
-            </div>
-        </section>
+    .process { background: var(--bg-soft); }
+    .steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+    .step { border-top: 1px solid var(--line); padding-top: 24px; }
+    .step-num { font-family: "Syne"; font-size: 1rem; color: var(--accent); margin-bottom: 40px; }
+    .step h3 { margin-bottom: 12px; font-size: 1.25rem; }
+    .step p { color: var(--muted); font-size: .92rem; }
 
-        <!-- CTA -->
-        <section id="cta-section">
-            <div class="cta-glow"></div>
-            <div class="container cta-content">
-                <div class="eyebrow" id="ctaEyebrow"></div>
-                <h2 id="ctaHeadline"></h2>
-                <p id="ctaSub"></p>
-                <a
-                    href="#contact"
-                    class="btn btn-primary btn-large"
-                    id="ctaBtn"
-                ></a>
-                <p class="cta-note" id="ctaNote"></p>
-            </div>
-        </section>
+    .cta-box { border: 1px solid var(--line); border-radius: 34px; padding: clamp(42px, 8vw, 90px); background: linear-gradient(135deg, rgba(27,77,82,.6), rgba(242,142,43,.09)); text-align: center; overflow: hidden; box-shadow: var(--shadow); }
+    .cta-box h2 { margin-inline: auto; }
+    .cta-box p { color: var(--muted); max-width: 650px; margin: 22px auto 30px; }
 
-        <!-- CONTACT -->
-        <section id="contact">
-            <div class="container contact-grid">
-                <div class="contact-info">
-                    <div class="eyebrow" id="contactEyebrow"></div>
-                    <h2 id="contactHeadline"></h2>
-                    <p id="contactSub"></p>
-                    <div class="contact-details" id="contactDetails"></div>
-                </div>
-                <div class="contact-form-wrap">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="fname">John Michael Esguerra Umpad</label>
-                                <input
-                                    type="text"
-                                    id="fname"
-                                    name="name"
-                                    placeholder="John Smith"
-                                    required
-                                />
-                            </div>
-                            <div class="form-group">
-                                <label for="femail">jmumpads.aclcbxu@gmail.com</label>
-                                <input
-                                    type="email"
-                                    id="femail"
-                                    name="email"
-                                    placeholder="john@company.com"
-                                    required
-                                />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="fbusiness">Information Technology</label>
-                            <input
-                                type="text"
-                                id="fbusiness"
-                                name="business"
-                                placeholder="Company name or website"
-                            />
-                        </div>
-                        <div class="form-group">
-                            <label for="fservice"
-                                >Service You're Interested In</label
-                            >
-                            <select id="fservice" name="service">
-                                <option value="">Select a service...</option>
-                                <option>GoHighLevel Setup</option>
-                                <option>Funnel Build</option>
-                                <option>Website Development</option>
-                                <option>Automation System</option>
-                                <option>AI Agent Workflow</option>
-                                <option>Full System Build</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="fmessage"
-                                >Tell me about your project</label
-                            >
-                            <textarea
-                                id="fmessage"
-                                name="message"
-                                rows="4"
-                                placeholder="What are you trying to achieve? What's not working right now?"
-                            ></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full">
-                            Send Message →
-                        </button>
-                        <p class="form-note">
-                            I respond to serious inquiries within 24 hours.
-                        </p>
-                    </form>
-                    <div
-                        class="form-success"
-                        id="formSuccess"
-                        style="display: none"
-                    >
-                        <div class="success-icon">✓</div>
-                        <h3>Message Received</h3>
-                        <p>I'll be in touch within 24 hours. Talk soon.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    .contact-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 60px; align-items: start; }
+    .contact-info p { color: var(--muted); margin-top: 20px; max-width: 440px; }
+    .contact-list { margin-top: 34px; display: grid; gap: 14px; }
+    .contact-list a, .contact-list div { padding: 15px 0; border-bottom: 1px solid var(--line); color: #dce6e2; }
+    .form { background: var(--panel); border: 1px solid var(--line); border-radius: 28px; padding: 30px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .field { display: grid; gap: 8px; margin-bottom: 16px; }
+    .field.full { grid-column: 1/-1; }
+    label { color: #d8e1de; font-size: .86rem; font-weight: 600; }
+    input, textarea, select { width: 100%; color: white; background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 14px; padding: 14px 15px; outline: none; transition: border .25s, background .25s; }
+    input:focus, textarea:focus, select:focus { border-color: var(--accent); background: rgba(255,255,255,.07); }
+    select option { color: #111; }
+    textarea { min-height: 140px; resize: vertical; }
+    .form .btn { width: 100%; border: 0; }
+    .form-note { color: var(--muted); font-size: .8rem; text-align: center; margin-top: 12px; }
+    .success { display: none; text-align: center; padding: 80px 20px; }
+    .success strong { display: block; font-family: "Syne"; font-size: 2rem; margin-bottom: 10px; }
 
-        <!-- FOOTER -->
-        <footer id="footer">
-            <div class="container footer-inner">
-                <div class="footer-brand">
-                    <a href="#hero" class="nav-logo"
-                        >RJF<span class="logo-dot">.</span></a
-                    >
-                    <p id="footerTagline"></p>
-                </div>
-                <div class="footer-links" id="footerLinks"></div>
-                <p class="footer-copy" id="footerCopy"></p>
-            </div>
-        </footer>
+    footer { padding: 28px 24px; border-top: 1px solid var(--line); }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; align-items: center; color: var(--muted); font-size: .86rem; }
+    .footer-links { display: flex; gap: 18px; }
 
-        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-        <script src="script.js"></script>
-    </body>
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      section { padding: 82px 20px; }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-card { max-width: 560px; transform: none; }
+      .service-grid { grid-template-columns: repeat(2,1fr); }
+      .steps { grid-template-columns: repeat(2,1fr); }
+      .nav-links {
+        position: fixed; inset: 0; background: rgba(7,17,15,.97); backdrop-filter: blur(18px);
+        display: flex; flex-direction: column; justify-content: center; align-items: center;
+        transform: translateX(100%); transition: .35s ease; font-size: 1.2rem;
+      }
+      .nav-links.open { transform: none; }
+      .menu-btn { display: grid; place-items: center; z-index: 2; }
+    }
+    @media (max-width: 640px) {
+      h1 { font-size: clamp(3.1rem, 17vw, 5.2rem); }
+      h2 { font-size: 2.35rem; }
+      .service-grid, .work-grid, .steps, .form-grid { grid-template-columns: 1fr; }
+      .profile-card { min-height: 430px; }
+      .project { min-height: 360px; }
+      .trust-row { justify-content: center; text-align: center; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .hero-scroll { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="logo" href="#home">RJF<span>.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a class="nav-cta" href="#contact">Let's Talk</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal visible">
+          <div class="availability"><span class="pulse"></span> Available for select projects</div>
+          <h1>I build systems that make businesses <span class="accent">move.</span></h1>
+          <p class="hero-text">I’m Reyper John Florida, a GoHighLevel expert and digital systems architect building conversion-focused websites, funnels, automation, CRM workflows, and practical AI solutions.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contact">Start a Project <span>↗</span></a>
+            <a class="btn btn-secondary" href="#work">View Selected Work</a>
+          </div>
+        </div>
+        <aside class="hero-card reveal visible">
+          <span class="hero-card-label">Core focus</span>
+          <strong>Strategy + Execution</strong>
+          <p>Not just attractive pages—connected systems designed around real business operations.</p>
+          <div class="mini-list">
+            <div>GoHighLevel <span>Expert Builds</span></div>
+            <div>Automation <span>Smart Workflows</span></div>
+            <div>AI Systems <span>Practical Use</span></div>
+            <div>Web Design <span>Conversion First</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="trust">
+      <div class="trust-row">
+        <span>GoHighLevel</span><span>Web Systems</span><span>CRM Automation</span><span>Funnels</span><span>AI Workflows</span><span>Operations</span>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="profile-card reveal">
+          <div>
+            <div class="eyebrow">About me</div>
+            <h3>Technical thinking with a business-first mindset.</h3>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>1-Page</strong><span>Clean, focused experiences</span></div>
+            <div class="stat"><strong>Full Stack</strong><span>Design through automation</span></div>
+            <div class="stat"><strong>Mobile</strong><span>Built for every screen</span></div>
+            <div class="stat"><strong>Reliable</strong><span>Organized execution</span></div>
+          </div>
+        </div>
+        <div class="about-copy reveal">
+          <div class="eyebrow">The person behind the systems</div>
+          <h2>I connect the website, CRM, automation, and customer journey.</h2>
+          <p>My work sits between design, technology, and operations. I help businesses simplify scattered tools, improve how leads move through the pipeline, and create digital experiences that feel polished without becoming difficult to manage.</p>
+          <p>I am especially focused on GoHighLevel implementation, responsive web development, workflow architecture, platform migration, and AI-assisted business processes.</p>
+          <div class="skills">
+            <span class="skill">GoHighLevel</span><span class="skill">HTML / CSS / JavaScript</span><span class="skill">CRM Architecture</span><span class="skill">Workflow Automation</span><span class="skill">Funnels</span><span class="skill">Responsive Design</span><span class="skill">AI Agents</span><span class="skill">System Documentation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">What I do</div>
+          <h2>Digital systems built to look sharp and work hard.</h2>
+          <p class="section-copy">From the public-facing website to the invisible workflows behind it, every piece is designed to support a clearer and more efficient customer journey.</p>
+        </div>
+        <div class="service-grid">
+          <article class="card reveal"><div class="icon">01</div><h3>GoHighLevel Systems</h3><p>Account architecture, pipelines, calendars, forms, workflows, automations, reputation tools, and practical CRM setups.</p></article>
+          <article class="card reveal"><div class="icon">02</div><h3>Websites & Funnels</h3><p>Responsive, clean, conversion-focused pages designed around the offer, audience, and next action.</p></article>
+          <article class="card reveal"><div class="icon">03</div><h3>Automation Architecture</h3><p>Lead routing, follow-up sequences, internal notifications, status changes, integrations, and operational logic.</p></article>
+          <article class="card reveal"><div class="icon">04</div><h3>AI Workflows</h3><p>Conversation AI, voice AI, knowledge-based assistants, qualification flows, and useful AI-supported processes.</p></article>
+          <article class="card reveal"><div class="icon">05</div><h3>Platform Migration</h3><p>Thoughtful transitions of websites and business processes while protecting domains, data, and continuity.</p></article>
+          <article class="card reveal"><div class="icon">06</div><h3>Technical Operations</h3><p>Documentation, dashboards, access systems, troubleshooting, project organization, and continuous improvement.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Selected work</div>
+          <h2>Complex projects made clear, usable, and scalable.</h2>
+          <p class="section-copy">A selection of the types of systems and digital experiences I support across education, real estate, finance, and local business marketing.</p>
+        </div>
+        <div class="work-grid">
+          <article class="project reveal"><span class="project-tag">Education Technology</span><div><h3>University Digital Transformation</h3><p>Planning connected experiences across the public website, student systems, LMS, SSO, reporting, and internal operations.</p><div class="project-meta"><span>System Architecture</span><span>SSO Planning</span><span>Web Migration</span></div></div></article>
+          <article class="project reveal"><span class="project-tag">Real Estate + Local Media</span><div><h3>Professor Pelican Ecosystem</h3><p>Conversion pages, listing experiences, lead capture, appointment workflows, local advertising funnels, and branded web components.</p><div class="project-meta"><span>GHL</span><span>Funnels</span><span>Automation</span></div></div></article>
+          <article class="project reveal"><span class="project-tag">Finance Brand</span><div><h3>Positive Trends Website</h3><p>A cleaner financial brand experience with responsive navigation, lead-generation forms, visual refinements, and platform migration planning.</p><div class="project-meta"><span>Web Design</span><span>Mobile UX</span><span>Lead Capture</span></div></div></article>
+          <article class="project reveal"><span class="project-tag">Operations</span><div><h3>Access & Project Systems</h3><p>Structured dashboards, password-access lifecycle documentation, SOPs, project status visibility, and repeatable team processes.</p><div class="project-meta"><span>Wrike</span><span>Bitwarden</span><span>SOPs</span></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <div class="container">
+        <div class="section-head reveal"><div class="eyebrow">How I work</div><h2>A focused process with fewer surprises.</h2></div>
+        <div class="steps">
+          <div class="step reveal"><div class="step-num">01 / Discover</div><h3>Understand the goal</h3><p>Clarify the audience, offer, workflow, technical limits, and actual business priority.</p></div>
+          <div class="step reveal"><div class="step-num">02 / Architect</div><h3>Map the system</h3><p>Define the pages, data movement, automation logic, integrations, and ownership.</p></div>
+          <div class="step reveal"><div class="step-num">03 / Build</div><h3>Create and connect</h3><p>Design the experience, configure the platform, connect the workflows, and optimize responsiveness.</p></div>
+          <div class="step reveal"><div class="step-num">04 / Improve</div><h3>Test and refine</h3><p>Check behavior, remove friction, document the solution, and improve based on real use.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta-box reveal">
+          <div class="eyebrow">Have a project in mind?</div>
+          <h2>Let’s build something that is easier to use—and easier to run.</h2>
+          <p>Bring me the messy workflow, outdated page, disconnected tools, or unfinished idea. We will turn it into a clear, professional system.</p>
+          <a class="btn btn-primary" href="#contact">Discuss Your Project ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info reveal">
+          <div class="eyebrow">Contact</div>
+          <h2>Tell me what you are trying to improve.</h2>
+          <p>Share your current setup, where the friction is, and what a successful result would look like.</p>
+          <div class="contact-list">
+            <a href="mailto:your@email.com">your@email.com</a>
+            <div>Based in the Philippines · Supporting remote teams</div>
+            <div>Typical response: within one business day</div>
+          </div>
+        </div>
+        <div class="form reveal" id="formWrap">
+          <form id="contactForm">
+            <div class="form-grid">
+              <div class="field"><label for="name">Name</label><input id="name" name="name" required placeholder="Your name"></div>
+              <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="you@company.com"></div>
+              <div class="field full"><label for="business">Business or website</label><input id="business" name="business" placeholder="Company name or URL"></div>
+              <div class="field full"><label for="service">What do you need help with?</label><select id="service" name="service"><option value="">Select a service</option><option>GoHighLevel setup</option><option>Website or funnel</option><option>Automation system</option><option>AI workflow</option><option>Platform migration</option><option>Other</option></select></div>
+              <div class="field full"><label for="message">Project details</label><textarea id="message" name="message" placeholder="What are you building or trying to fix?"></textarea></div>
+            </div>
+            <button class="btn btn-primary" type="submit">Send Project Inquiry ↗</button>
+            <p class="form-note">Demo form behavior is included. Connect it to your GHL form, webhook, or preferred form handler before publishing.</p>
+          </form>
+          <div class="success" id="success"><strong>Message ready.</strong><p>Connect this form to your live submission endpoint before publishing.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="logo" href="#home">RJF<span>.</span></a>
+      <div>© <span id="year"></span> Reyper John Florida. Built with clarity.</div>
+      <div class="footer-links"><a href="#about">About</a><a href="#work">Work</a><a href="#contact">Contact</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 24));
+
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      document.body.classList.toggle('menu-open', open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.textContent = open ? '✕' : '☰';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.textContent = '☰';
+    }));
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
+
+    document.getElementById('contactForm').addEventListener('submit', event => {
+      event.preventDefault();
+      event.currentTarget.style.display = 'none';
+      document.getElementById('success').style.display = 'block';
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
