@@ -536,7 +536,6 @@ function initForm() {
     } else {
         alert("Unable to send message.");
     }
-
 });
   }
 
