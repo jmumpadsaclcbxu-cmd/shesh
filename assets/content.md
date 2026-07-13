@@ -1,6 +1,6 @@
 # SITE_META
-title: Marjory Say-ao — GoHighLevel Expert & Digital Systems Architect
-description: I build client acquisition systems — websites, funnels, automation, and AI workflows — that turn traffic into revenue.
+title: John Michael Esguerra Umpad - GoHighLevel Expert & Digital Systems Architect
+description: I build client acquisition systems - websites, funnels, automation, and AI workflows — that turn traffic into revenue.
 
 # NAV
 - Home
