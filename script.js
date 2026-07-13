@@ -520,7 +520,7 @@
     };
 
     const response = await fetch(
-        "https://jm.marjbsayao.workers.dev/",
+        "https://jm.marjbsayao.workers.dev",
         {
             method: "POST",
             headers: {
