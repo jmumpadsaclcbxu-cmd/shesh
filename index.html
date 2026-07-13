@@ -1,281 +1,420 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>
-            Reyper John Florida — GoHighLevel Expert & Digital Systems Architect
-        </title>
-        <meta
-            name="description"
-            content="I build client acquisition systems — websites, funnels, automation, and AI workflows — that turn traffic into revenue."
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
-        <!-- NAV -->
-        <nav id="navbar">
-            <div class="nav-inner">
-                <a href="#hero" class="nav-logo"
-                    >RJF<span class="logo-dot">.</span></a
-                >
-                <button
-                    class="nav-toggle"
-                    id="navToggle"
-                    aria-label="Toggle menu"
-                >
-                    <span></span><span></span><span></span>
-                </button>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#process">Process</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact" class="nav-cta">Book a Call</a></li>
-                </ul>
-            </div>
-        </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Reyper John Florida — GoHighLevel expert, web developer, and digital systems architect." />
+  <meta name="theme-color" content="#07110f" />
+  <title>Reyper John Florida — Digital Systems Architect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #07110f;
+      --surface: #0d1916;
+      --surface-2: #11221e;
+      --text: #f4f7f5;
+      --muted: #a9b8b2;
+      --line: rgba(255,255,255,.10);
+      --accent: #63e6be;
+      --accent-2: #a7f3d0;
+      --danger: #ff8a8a;
+      --shadow: 0 24px 80px rgba(0,0,0,.34);
+      --radius: 24px;
+      --max: 1180px;
+    }
 
-        <!-- HERO -->
-        <section id="hero">
-            <div class="hero-bg-grid"></div>
-            <div class="hero-glow"></div>
-            <div class="container hero-content">
-                <div class="hero-eyebrow" id="heroEyebrow"></div>
-                <h1 class="hero-headline" id="heroHeadline"></h1>
-                <p class="hero-sub" id="heroSub"></p>
-                <div class="hero-actions">
-                    <a
-                        href="#contact"
-                        class="btn btn-primary"
-                        id="heroCta1"
-                    ></a>
-                    <a href="#work" class="btn btn-ghost" id="heroCta2"></a>
-                </div>
-                <div class="hero-badge" id="heroBadge"></div>
-            </div>
-            <div class="hero-scroll-hint">
-                <span>Scroll</span>
-                <div class="scroll-line"></div>
-            </div>
-        </section>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(99,230,190,.12), transparent 34%),
+        radial-gradient(circle at 90% 18%, rgba(167,243,208,.08), transparent 28%),
+        var(--bg);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .section { padding: 112px 0; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+    h1, h2, h3 { font-family: "Manrope", sans-serif; line-height: 1.08; margin: 0; }
+    h2 { font-size: clamp(2.2rem, 5vw, 4.6rem); letter-spacing: -.05em; }
+    .section-copy { color: var(--muted); max-width: 650px; font-size: 1.05rem; }
 
-        <!-- TRUST STRIP -->
-        <section id="trust">
-            <div class="trust-inner">
-                <div class="trust-track" id="trustTrack"></div>
-            </div>
-        </section>
+    nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      border-bottom: 1px solid transparent;
+      transition: .3s ease;
+    }
+    nav.scrolled {
+      background: rgba(7,17,15,.82);
+      backdrop-filter: blur(18px);
+      border-color: var(--line);
+    }
+    .nav-inner { height: 76px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-family: "Manrope"; font-size: 1.1rem; font-weight: 800; letter-spacing: -.03em; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { color: #d7e0dc; font-size: .92rem; font-weight: 600; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta { padding: 11px 18px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.04); }
+    .menu-btn { display: none; border: 0; background: transparent; color: white; width: 42px; height: 42px; cursor: pointer; }
 
-        <!-- ABOUT -->
-        <section id="about">
-            <div class="container about-grid">
-                <div class="about-visual">
-                    <div class="about-card">
-                        <div class="about-card-inner">
-                            <div class="about-stats" id="aboutStats"></div>
-                        </div>
-                        <div class="about-card-tag">
-                            Computer Science Background
-                        </div>
-                        <div class="about-card-tag tag-2">
-                            GoHighLevel Certified Expert
-                        </div>
-                    </div>
-                    <div class="about-deco-line"></div>
-                </div>
-                <div class="about-copy">
-                    <div class="eyebrow" id="aboutEyebrow"></div>
-                    <h2 id="aboutHeadline"></h2>
-                    <div class="about-body" id="aboutBody"></div>
-                </div>
-            </div>
-        </section>
+    .hero { min-height: 100svh; display: grid; align-items: center; padding: 130px 0 70px; position: relative; }
+    .hero-grid {
+      position: absolute; inset: 0; pointer-events: none; opacity: .18;
+      background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(to bottom, black, transparent 86%);
+    }
+    .hero-layout { display: grid; grid-template-columns: 1.25fr .75fr; gap: 70px; align-items: center; position: relative; }
+    .availability { display: inline-flex; align-items: center; gap: 9px; padding: 8px 12px; border: 1px solid var(--line); background: rgba(255,255,255,.035); border-radius: 999px; color: #dce6e2; font-size: .82rem; margin-bottom: 26px; }
+    .availability i { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 18px var(--accent); }
+    .hero h1 { font-size: clamp(3.2rem, 7.4vw, 7.2rem); letter-spacing: -.075em; max-width: 900px; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero p { color: var(--muted); font-size: clamp(1rem, 1.6vw, 1.25rem); max-width: 720px; margin: 26px 0 34px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; min-height: 54px; padding: 0 22px; border-radius: 999px; border: 1px solid var(--line); font-weight: 800; cursor: pointer; transition: transform .2s, border-color .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { color: #06110e; background: var(--accent); border-color: var(--accent); }
+    .btn-secondary { background: rgba(255,255,255,.04); }
+    .hero-card { background: linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.02)); border: 1px solid var(--line); border-radius: 30px; padding: 28px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    .hero-card::after { content: ""; position: absolute; width: 220px; height: 220px; border-radius: 50%; background: var(--accent); filter: blur(100px); opacity: .16; right: -90px; top: -90px; }
+    .profile-mark { width: 84px; height: 84px; border-radius: 24px; background: var(--accent); color: #07110f; display: grid; place-items: center; font: 800 1.8rem/1 "Manrope"; }
+    .hero-card h3 { font-size: 1.55rem; margin: 28px 0 8px; }
+    .hero-card p { font-size: .95rem; margin: 0 0 26px; }
+    .metric-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+    .metric { border: 1px solid var(--line); background: rgba(0,0,0,.12); border-radius: 18px; padding: 16px; }
+    .metric strong { display: block; font: 800 1.35rem/1 "Manrope"; color: var(--accent-2); }
+    .metric span { color: var(--muted); font-size: .78rem; }
 
-        <!-- SERVICES -->
-        <section id="services">
-            <div class="container">
-                <div class="section-header">
-                    <div class="eyebrow" id="servicesEyebrow"></div>
-                    <h2 id="servicesHeadline"></h2>
-                    <p class="section-sub" id="servicesSub"></p>
-                </div>
-                <div class="services-grid" id="servicesGrid"></div>
-            </div>
-        </section>
+    .trust { border-block: 1px solid var(--line); background: rgba(255,255,255,.018); }
+    .trust-row { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 26px; flex-wrap: wrap; color: #b7c4bf; font-weight: 700; font-size: .9rem; }
 
-        <!-- CASE STUDIES -->
-        <section id="work">
-            <div class="container">
-                <div class="section-header">
-                    <div class="eyebrow" id="caseEyebrow"></div>
-                    <h2 id="caseHeadline"></h2>
-                    <p class="section-sub" id="caseSub"></p>
-                </div>
-                <div class="cases-grid" id="casesGrid"></div>
-            </div>
-        </section>
+    .about-grid, .contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 80px; align-items: start; }
+    .sticky-label { position: sticky; top: 120px; }
+    .about-copy > p { color: var(--muted); font-size: 1.08rem; }
+    .skill-list { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .skill-list span { border: 1px solid var(--line); border-radius: 999px; padding: 9px 13px; color: #d9e3df; background: rgba(255,255,255,.025); font-size: .86rem; }
 
-        <!-- PROCESS -->
-        <section id="process">
-            <div class="process-bg"></div>
-            <div class="container">
-                <div class="section-header">
-                    <div class="eyebrow" id="processEyebrow"></div>
-                    <h2 id="processHeadline"></h2>
-                    <p class="section-sub" id="processSub"></p>
-                </div>
-                <div class="process-steps" id="processSteps"></div>
-            </div>
-        </section>
+    .services { background: #091512; border-block: 1px solid var(--line); }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 54px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { min-height: 340px; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.014)); padding: 28px; display: flex; flex-direction: column; transition: .25s ease; }
+    .card:hover { transform: translateY(-6px); border-color: rgba(99,230,190,.45); }
+    .card-number { color: var(--accent); font-size: .78rem; font-weight: 800; letter-spacing: .12em; }
+    .card h3 { font-size: 1.45rem; margin: auto 0 15px; }
+    .card p { color: var(--muted); margin: 0; }
 
-        <!-- DIFFERENTIATORS -->
-        <section id="differentiators">
-            <div class="container">
-                <div class="section-header">
-                    <div class="eyebrow" id="diffEyebrow"></div>
-                    <h2 id="diffHeadline"></h2>
-                </div>
-                <div class="diff-grid" id="diffGrid"></div>
-            </div>
-        </section>
+    .work-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+    .project { border-radius: 28px; border: 1px solid var(--line); overflow: hidden; background: var(--surface); }
+    .project-visual { min-height: 290px; padding: 30px; background: linear-gradient(135deg, #17372f, #0b1714); position: relative; display: flex; align-items: end; overflow: hidden; }
+    .project-visual::before { content: ""; position: absolute; width: 250px; height: 250px; border-radius: 50%; background: var(--accent); filter: blur(110px); opacity: .19; right: -20px; top: -40px; }
+    .browser { width: 100%; border: 1px solid rgba(255,255,255,.16); border-radius: 15px; background: #0b1412; overflow: hidden; box-shadow: 0 28px 50px rgba(0,0,0,.35); z-index: 1; }
+    .browser-top { height: 30px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 6px; padding: 0 10px; }
+    .browser-top i { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.35); }
+    .browser-body { padding: 28px 22px; }
+    .browser-body strong { display: block; font: 800 1.45rem/1.2 "Manrope"; max-width: 270px; }
+    .project-copy { padding: 28px; }
+    .project-copy small { color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
+    .project-copy h3 { font-size: 1.55rem; margin: 12px 0 10px; }
+    .project-copy p { color: var(--muted); margin: 0; }
 
-        <!-- TESTIMONIALS -->
-        <section id="testimonials">
-            <div class="container">
-                <div class="section-header">
-                    <div class="eyebrow" id="testEyebrow"></div>
-                    <h2 id="testHeadline"></h2>
-                </div>
-                <div class="testimonials-grid" id="testimonialsGrid"></div>
-            </div>
-        </section>
+    .process { background: #091512; border-block: 1px solid var(--line); }
+    .process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 15px; margin-top: 52px; }
+    .step { padding: 26px 22px; border-top: 1px solid var(--line); }
+    .step strong { display: block; color: var(--accent); margin-bottom: 35px; }
+    .step h3 { font-size: 1.18rem; margin-bottom: 10px; }
+    .step p { color: var(--muted); font-size: .92rem; margin: 0; }
 
-        <!-- CTA -->
-        <section id="cta-section">
-            <div class="cta-glow"></div>
-            <div class="container cta-content">
-                <div class="eyebrow" id="ctaEyebrow"></div>
-                <h2 id="ctaHeadline"></h2>
-                <p id="ctaSub"></p>
-                <a
-                    href="#contact"
-                    class="btn btn-primary btn-large"
-                    id="ctaBtn"
-                ></a>
-                <p class="cta-note" id="ctaNote"></p>
-            </div>
-        </section>
+    .contact-card { background: linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.018)); border: 1px solid var(--line); border-radius: 30px; padding: clamp(24px, 4vw, 42px); box-shadow: var(--shadow); }
+    .form-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+    .field { display: grid; gap: 8px; }
+    .field.full { grid-column: 1 / -1; }
+    label { color: #dce5e1; font-size: .84rem; font-weight: 700; }
+    input, select, textarea { width: 100%; border: 1px solid var(--line); border-radius: 14px; background: rgba(0,0,0,.16); color: var(--text); outline: none; padding: 14px 15px; transition: border-color .2s, box-shadow .2s; }
+    textarea { min-height: 145px; resize: vertical; }
+    input:focus, select:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(99,230,190,.08); }
+    select option { background: #101b18; }
+    .form-submit { width: 100%; margin-top: 18px; }
+    .status { min-height: 25px; margin: 14px 0 0; font-size: .9rem; color: var(--muted); }
+    .status.success { color: var(--accent); }
+    .status.error { color: var(--danger); }
+    .hp { position: absolute !important; left: -9999px !important; opacity: 0 !important; pointer-events: none !important; }
+    .contact-list { display: grid; gap: 14px; margin-top: 30px; }
+    .contact-list a, .contact-list span { color: #dfe8e4; }
+    footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
 
-        <!-- CONTACT -->
-        <section id="contact">
-            <div class="container contact-grid">
-                <div class="contact-info">
-                    <div class="eyebrow" id="contactEyebrow"></div>
-                    <h2 id="contactHeadline"></h2>
-                    <p id="contactSub"></p>
-                    <div class="contact-details" id="contactDetails"></div>
-                </div>
-                <div class="contact-form-wrap">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="fname">Your Name</label>
-                                <input
-                                    type="text"
-                                    id="fname"
-                                    name="name"
-                                    placeholder="John Smith"
-                                    required
-                                />
-                            </div>
-                            <div class="form-group">
-                                <label for="femail">Your Email</label>
-                                <input
-                                    type="email"
-                                    id="femail"
-                                    name="email"
-                                    placeholder="john@company.com"
-                                    required
-                                />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="fbusiness">Your Business</label>
-                            <input
-                                type="text"
-                                id="fbusiness"
-                                name="business"
-                                placeholder="Company name or website"
-                            />
-                        </div>
-                        <div class="form-group">
-                            <label for="fservice"
-                                >Service You're Interested In</label
-                            >
-                            <select id="fservice" name="service">
-                                <option value="">Select a service...</option>
-                                <option>GoHighLevel Setup</option>
-                                <option>Funnel Build</option>
-                                <option>Website Development</option>
-                                <option>Automation System</option>
-                                <option>AI Agent Workflow</option>
-                                <option>Full System Build</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="fmessage"
-                                >Tell me about your project</label
-                            >
-                            <textarea
-                                id="fmessage"
-                                name="message"
-                                rows="4"
-                                placeholder="What are you trying to achieve? What's not working right now?"
-                            ></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full">
-                            Send Message →
-                        </button>
-                        <p class="form-note">
-                            I respond to serious inquiries within 24 hours.
-                        </p>
-                    </form>
-                    <div
-                        class="form-success"
-                        id="formSuccess"
-                        style="display: none"
-                    >
-                        <div class="success-icon">✓</div>
-                        <h3>Message Received</h3>
-                        <p>I'll be in touch within 24 hours. Talk soon.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    .reveal { opacity: 0; transform: translateY(24px); transition: .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
 
-        <!-- FOOTER -->
-        <footer id="footer">
-            <div class="container footer-inner">
-                <div class="footer-brand">
-                    <a href="#hero" class="nav-logo"
-                        >RJF<span class="logo-dot">.</span></a
-                    >
-                    <p id="footerTagline"></p>
-                </div>
-                <div class="footer-links" id="footerLinks"></div>
-                <p class="footer-copy" id="footerCopy"></p>
-            </div>
-        </footer>
+    @media (max-width: 900px) {
+      .hero-layout, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 46px; }
+      .hero-card { max-width: 620px; }
+      .cards { grid-template-columns: 1fr 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .sticky-label { position: static; }
+      .menu-btn { display: grid; place-items: center; }
+      .nav-links { position: fixed; inset: 76px 18px auto; padding: 22px; border: 1px solid var(--line); border-radius: 20px; background: rgba(7,17,15,.97); backdrop-filter: blur(18px); flex-direction: column; align-items: stretch; transform: translateY(-18px); opacity: 0; pointer-events: none; transition: .25s ease; }
+      .nav-links.open { transform: none; opacity: 1; pointer-events: auto; }
+      .nav-links a { display: block; padding: 10px; }
+    }
+    @media (max-width: 650px) {
+      .container { width: min(calc(100% - 28px), var(--max)); }
+      .section { padding: 84px 0; }
+      .hero { min-height: auto; padding-top: 125px; }
+      .hero h1 { font-size: clamp(3rem, 15vw, 4.9rem); }
+      .cards, .work-grid, .form-grid, .process-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .section-head { align-items: start; flex-direction: column; margin-bottom: 36px; }
+      .project-visual { min-height: 230px; }
+      .metric-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">RJF<span>.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#process">Process</a>
+        <a class="nav-cta" href="#contact">Start a project</a>
+      </div>
+    </div>
+  </nav>
 
-        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-        <script src="script.js"></script>
-    </body>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-grid"></div>
+      <div class="container hero-layout">
+        <div class="reveal">
+          <div class="availability"><i></i> Available for selected projects</div>
+          <h1>Systems that turn ideas into <em>growth.</em></h1>
+          <p>I build polished websites, high-converting funnels, CRM automation, and AI-powered workflows for businesses that want cleaner operations and better results.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contact">Discuss your project →</a>
+            <a class="btn btn-secondary" href="#work">View selected work</a>
+          </div>
+        </div>
+        <aside class="hero-card reveal">
+          <div class="profile-mark">RJF</div>
+          <h3>Reyper John Florida</h3>
+          <p>GoHighLevel Expert · Web Developer · Digital Systems Architect</p>
+          <div class="metric-grid">
+            <div class="metric"><strong>GHL</strong><span>Funnels & CRM</span></div>
+            <div class="metric"><strong>AI</strong><span>Smart workflows</span></div>
+            <div class="metric"><strong>Web</strong><span>Responsive builds</span></div>
+            <div class="metric"><strong>Ops</strong><span>System design</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="trust">
+      <div class="container trust-row">
+        <span>GoHighLevel</span><span>Cloudflare</span><span>Workflow Automation</span><span>Conversion Design</span><span>AI Integration</span>
+      </div>
+    </div>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="sticky-label reveal">
+          <span class="eyebrow">About me</span>
+          <h2 style="margin-top:18px">Technical thinking. Business-first execution.</h2>
+        </div>
+        <div class="about-copy reveal">
+          <p>I help organizations move from scattered tools and manual work to reliable digital systems. My work combines clean interface design, practical development, automation, and a deep understanding of how customer journeys should flow.</p>
+          <p>Whether the goal is a new website, a lead-generation funnel, a better CRM, or an internal operating system, I focus on making the experience simple for users and maintainable for the team behind it.</p>
+          <div class="skill-list">
+            <span>GoHighLevel</span><span>HTML / CSS / JavaScript</span><span>Cloudflare Workers</span><span>CRM Architecture</span><span>Funnels</span><span>Automation</span><span>API Integration</span><span>Responsive Design</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">What I do</span><h2 style="margin-top:18px">Digital systems built to perform.</h2></div>
+          <p class="section-copy">Focused services for businesses that need better presentation, smoother operations, and a stronger path from traffic to conversion.</p>
+        </div>
+        <div class="cards">
+          <article class="card reveal"><span class="card-number">01 / WEBSITE</span><h3>Professional websites</h3><p>Fast, responsive, conversion-aware websites with clear hierarchy, premium design, and practical editing.</p></article>
+          <article class="card reveal"><span class="card-number">02 / GHL</span><h3>GoHighLevel systems</h3><p>Funnels, forms, calendars, pipelines, workflows, subaccounts, and custom code configured around your operation.</p></article>
+          <article class="card reveal"><span class="card-number">03 / AUTOMATION</span><h3>Workflow automation</h3><p>Connected processes that reduce manual work, improve follow-up, and keep leads and teams moving.</p></article>
+          <article class="card reveal"><span class="card-number">04 / AI</span><h3>AI-powered experiences</h3><p>Conversation agents, knowledge workflows, and intelligent customer support designed for real business use.</p></article>
+          <article class="card reveal"><span class="card-number">05 / INTEGRATION</span><h3>API and platform integration</h3><p>Secure connections between websites, CRMs, forms, email services, databases, and external tools.</p></article>
+          <article class="card reveal"><span class="card-number">06 / OPTIMIZATION</span><h3>Conversion improvements</h3><p>Mobile refinements, UX cleanup, speed improvements, and focused adjustments that make existing assets stronger.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Selected work</span><h2 style="margin-top:18px">Projects with real operational value.</h2></div>
+          <p class="section-copy">Replace these examples with your final screenshots, live links, and measurable results.</p>
+        </div>
+        <div class="work-grid">
+          <article class="project reveal">
+            <div class="project-visual"><div class="browser"><div class="browser-top"><i></i><i></i><i></i></div><div class="browser-body"><strong>Positive Trends corporate website conversion</strong></div></div></div>
+            <div class="project-copy"><small>Website · GHL</small><h3>Positive Trends</h3><p>Modernized a financial brand experience with responsive layouts, clear section navigation, lead capture, and improved mobile presentation.</p></div>
+          </article>
+          <article class="project reveal">
+            <div class="project-visual"><div class="browser"><div class="browser-top"><i></i><i></i><i></i></div><div class="browser-body"><strong>Professor Pelican customer acquisition ecosystem</strong></div></div></div>
+            <div class="project-copy"><small>Funnels · Automation</small><h3>Professor Pelican</h3><p>Built and refined pages, offers, forms, navigation, follow-up workflows, and custom GHL components for a Charleston real estate brand.</p></div>
+          </article>
+          <article class="project reveal">
+            <div class="project-visual"><div class="browser"><div class="browser-top"><i></i><i></i><i></i></div><div class="browser-body"><strong>University digital transformation planning</strong></div></div></div>
+            <div class="project-copy"><small>Systems · Strategy</small><h3>Amberton University</h3><p>Supported web, SSO, SIS, LMS, reporting, portal, and operational planning across a complex modernization initiative.</p></div>
+          </article>
+          <article class="project reveal">
+            <div class="project-visual"><div class="browser"><div class="browser-top"><i></i><i></i><i></i></div><div class="browser-body"><strong>Secure contact delivery with Cloudflare Worker</strong></div></div></div>
+            <div class="project-copy"><small>Cloudflare · API</small><h3>Serverless form delivery</h3><p>A secure contact pipeline that validates browser submissions and sends notification email without exposing API credentials.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" id="process">
+      <div class="container">
+        <span class="eyebrow reveal">How I work</span>
+        <h2 class="reveal" style="margin-top:18px; max-width:800px">A clear path from business problem to working system.</h2>
+        <div class="process-grid">
+          <div class="step reveal"><strong>01</strong><h3>Discover</h3><p>Understand your offer, audience, tools, friction points, and definition of success.</p></div>
+          <div class="step reveal"><strong>02</strong><h3>Architect</h3><p>Map the page structure, customer journey, data flow, and technical requirements.</p></div>
+          <div class="step reveal"><strong>03</strong><h3>Build</h3><p>Create the interface, automation, integrations, and responsive experience.</p></div>
+          <div class="step reveal"><strong>04</strong><h3>Refine</h3><p>Test, optimize, document, and prepare the system for confident use.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div class="sticky-label reveal">
+          <span class="eyebrow">Contact</span>
+          <h2 style="margin-top:18px">Have a project in mind?</h2>
+          <p class="section-copy">Send the details below. Your message will be delivered securely through a Cloudflare Worker.</p>
+          <div class="contact-list"><span>Based in the Philippines · Working globally</span><span>Typical response: within one business day</span></div>
+        </div>
+        <div class="contact-card reveal">
+          <form id="contactForm" novalidate>
+            <div class="form-grid">
+              <div class="field"><label for="name">Name *</label><input id="name" name="name" autocomplete="name" maxlength="80" required placeholder="Your name" /></div>
+              <div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" autocomplete="email" maxlength="160" required placeholder="you@company.com" /></div>
+              <div class="field"><label for="company">Company</label><input id="company" name="company" maxlength="120" placeholder="Company or website" /></div>
+              <div class="field"><label for="service">Service</label><select id="service" name="service"><option value="">Select one</option><option>Website development</option><option>GoHighLevel setup</option><option>Automation</option><option>AI workflow</option><option>Systems consulting</option><option>Other</option></select></div>
+              <div class="field full"><label for="message">Project details *</label><textarea id="message" name="message" maxlength="3000" required placeholder="Tell me what you want to build, improve, or automate."></textarea></div>
+              <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off" /></div>
+            </div>
+            <button class="btn btn-primary form-submit" id="submitBtn" type="submit">Send project inquiry →</button>
+            <p class="status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><span>© <span id="year"></span> Reyper John Florida</span><a href="#home">Back to top ↑</a></div></footer>
+
+  <script>
+    // IMPORTANT: Replace this with your deployed Cloudflare Worker URL.
+    const WORKER_ENDPOINT = "https://YOUR-WORKER.YOUR-SUBDOMAIN.workers.dev";
+
+    const navbar = document.getElementById("navbar");
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    const form = document.getElementById("contactForm");
+    const statusEl = document.getElementById("formStatus");
+    const submitBtn = document.getElementById("submitBtn");
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    window.addEventListener("scroll", () => navbar.classList.toggle("scrolled", window.scrollY > 20));
+
+    menuBtn.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
+      menuBtn.textContent = isOpen ? "✕" : "☰";
+      document.body.classList.toggle("menu-open", isOpen);
+    });
+    navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.textContent = "☰";
+      document.body.classList.remove("menu-open");
+    }));
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .13 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      statusEl.className = "status";
+
+      if (WORKER_ENDPOINT.includes("YOUR-WORKER")) {
+        statusEl.textContent = "Add your deployed Cloudflare Worker URL in index.html first.";
+        statusEl.classList.add("error");
+        return;
+      }
+      if (!form.reportValidity()) return;
+
+      const payload = Object.fromEntries(new FormData(form).entries());
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending…";
+      statusEl.textContent = "Securely sending your message…";
+
+      try {
+        const response = await fetch(WORKER_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || "Unable to send the message.");
+
+        form.reset();
+        statusEl.textContent = "Message sent successfully. Thank you — I’ll be in touch soon.";
+        statusEl.classList.add("success");
+      } catch (error) {
+        statusEl.textContent = error.message || "Something went wrong. Please try again.";
+        statusEl.classList.add("error");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send project inquiry →";
+      }
+    });
+  </script>
+</body>
 </html>
