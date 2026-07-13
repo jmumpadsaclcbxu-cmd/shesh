@@ -4,7 +4,7 @@
    CSS VARIABLES & RESET
    ============================================================ */
 :root {
-    --c-bg: #ffffff;
+    --c-bg: #ffffff;;
     --c-bg-2: #f8faf7;
     --c-bg-3: #eef5eb;
     --c-surface: #ffffff;
