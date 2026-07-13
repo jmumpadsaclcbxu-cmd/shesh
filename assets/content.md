@@ -30,9 +30,12 @@ badge: 50+ Client Systems Deployed
 # ABOUT
 eyebrow: About Me
 headline: Strategic. Technical. Obsessively Outcome-Focused.
-body_1: I'm Marjory Say-ao, a Bachelor of Science in Information Technology graduate and a GoHighLevel Expert who is passionate about helping businesses grow through digital solutions. I specialize in building websites, sales funnels, CRM systems, workflow automations, and social media planning that streamline business processes and improve customer engagement.
-body_2: With a background in Information Technology and expertise in GoHighLevel, I create digital solutions that combine functionality with user experience. From websites and sales funnels to CRM setup, workflow automation, social media planning, and graphic design, I focus on building systems that support business growth and simplify everyday operations.
-body_3: I work with businesses, agencies, entrepreneurs, coaches, and consultants to create digital solutions that support their growth. Whether it's building websites, sales funnels, CRM systems, workflow automations, or graphic designs, my goal is to deliver solutions that are functional, user-friendly, and tailored to each client's needs.
+body_1:
+I’m John Michael Esguerra Umpad, a Bachelor of Science in Information Technology graduate and a GoHighLevel specialist dedicated to helping businesses grow through effective digital solutions. I build websites, sales funnels, CRM systems, workflow automations, and social media strategies designed to improve efficiency, simplify processes, and strengthen customer engagement.
+body_2:
+With a strong background in Information Technology and hands-on experience in GoHighLevel, I develop digital solutions that balance functionality and user experience. My services include website and funnel development, CRM setup, workflow automation, social media planning, and graphic design—all focused on supporting business growth and making daily operations more manageable.
+body_3:
+I help businesses, agencies, entrepreneurs, coaches, and consultants build digital systems that support their goals and long-term growth. From websites and sales funnels to CRM solutions, workflow automations, and graphic design, I aim to deliver customized, practical, and user-friendly solutions that meet each client’s unique needs.
 stats_1_value: 50+
 stats_1_label: Systems Built
 stats_2_value: 3x
@@ -199,7 +202,7 @@ cta_note: Let's discuss your project and find the right solution for your busine
 eyebrow: Get In Touch
 headline: Start the Conversation
 subheadline: Fill out the form below or reach out directly. I respond to serious inquiries within 24 hours.
-email: marjbsayao@gmail.com
+email: jmumpads.aclcbxu@gmail.com
 location: Available Worldwide · Remote-First
 cta_label: Send Message
 field_name: Your Name
@@ -217,7 +220,7 @@ service_options:
 
 # FOOTER
 tagline: Building client acquisition systems that convert.
-copyright: © 2026 Marjory Say-ao. All rights reserved.
+copyright: © 2026 John Michael Esguerra Umpad. All rights reserved.
 links:
 - Book a Call
 - Services
